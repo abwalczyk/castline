@@ -1,26 +1,66 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-newsreader);
+  --color-canvas: #090b0e;
+  --color-surface: #11151b;
+  --color-surface-2: #191e26;
+  --color-line: #2c3340;
+  --color-ink: #f4f1ea;
+  --color-muted: #a39c90;
+  --color-faint: #6f6a62;
+  --color-accent: #d7a35a;
+  --color-accent-soft: #f0d7a8;
+  --color-accent-ink: #1c140a;
+  --color-good: #8fceab;
+  --color-warn: #e6c36a;
+  --color-bad: #ef8d7d;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: transparent;
+  color: var(--color-ink);
+  font-family: var(--font-sans), sans-serif;
+}
+
+::selection {
+  background: #d7a35a;
+  color: #1c140a;
+}
+
+::placeholder {
+  color: #6f6a62;
+}
+
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid #d7a35a;
+  outline-offset: 2px;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: #d7a35a;
 }
